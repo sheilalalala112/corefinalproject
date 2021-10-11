@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Tables</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+		Tables
+	</header>
+	<nav>
+		<a href="link1.html" class="nav_links">Link 1</a>
+		<a href="link2.html" class="nav_links">Link 2</a>
+		<a href="link3.html" class="nav_links">Link 3</a>
+		<a href="link4.html" class="nav_links">Link 4</a>
+		<a href="link5.html" class="nav_links">Link 5</a>
+	</nav>
+    <main>
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+      <tr>
+        <th>Game ID</th>	
+        <th>Field</th>
+        <th> DateTime</th> </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+        <td> 57767 </td>	
+        <td> 65276 </td>
+        <td>	35645 </td>
+        </tr>
+
+        <tr>
+       <td>  Hodge	</td>
+       <td> Prebys </td>
+       <td>	Godfrey </td>
+        </tr>
+
+        <tr>
+        <td> 2022-03-12 12:45:00	</td> 
+        <td>2022-04-22 10:14:00	</td>
+        <td>	2022-11-12 11:45:00	 </td>
+        </tr>
+
+      </tbody>
+    </table>
+      <form action="confirmation.html" method="POST">
+
+        <label for= "gameid"> Game ID </label>
+
+			<input type="text" name="gameid" id="gameid"> <br>
+      
+      <label for="feild">Field </label>
+            <input type="text" name="feild" id="feild"> <br>
+   
+        <label for="datetime">DateTime </label>
+            <input type="text" name="datetime" id="datetime"> <br>
+
+      <br>
+
+        <input class="button" type= "submit" name="submit" id="submit" value="submit Survey">
+   
+        </form>
+    </main>
+
+   
+
+  </body>
+</html>
