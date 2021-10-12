@@ -25,7 +25,11 @@ const refereeList = {
             //select the student id and add another offer into this student
             //WHAT??
             // this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
+<<<<<<< Updated upstream
             console.log("Posting:", this.refereeForm);
+=======
+            console.log("Posting:", this.offerForm);
+>>>>>>> Stashed changes
             alert("Posting!");
 
             fetch('api/referee/referee.php', {
