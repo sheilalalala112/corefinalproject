@@ -1,5 +1,0 @@
-MYSQL_DATABASE=msisdb
-MYSQL_HOST=msisdb.cu0cgzplkzlq.us-east-2.rds.amazonaws.com
-MYSQL_USER=admin
-MYSQL_PASSWORD=Qq627718642!
-<* need to change to the database for this project *>
