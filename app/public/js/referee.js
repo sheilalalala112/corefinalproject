@@ -2,6 +2,7 @@ const refereeList = {
     data() {
       return {
         referees: []
+        refereeForm: {}
       }
     },
 
@@ -23,13 +24,13 @@ const refereeList = {
         postNewReferee(evt) { //event handler for form submission, event object is the default 
             //select the student id and add another offer into this student
             //WHAT??
-            this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
-            console.log("Posting:", this.offerForm);
+            // this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
+            console.log("Posting:", this.refereeForm);
             alert("Posting!");
 
             fetch('api/referee/referee.php', {
                 method:'POST',
-                body: JSON.stringify(this.offerForm),
+                body: JSON.stringify(this.refereeForm),
                 headers: {
                 "Content-Type": "application/json; charset=utf-8"
                 }
@@ -38,10 +39,10 @@ const refereeList = {
             .then( json => {
                 console.log("Returned from post:", json);
                 // TODO: test a result was returned!
-                this.offers = json;
+                this.referees = json;
                 
                 // reset the form
-                this.offerForm = {};
+                this.refereeForm = {};
             });
         }
     },

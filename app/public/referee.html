@@ -13,6 +13,7 @@
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   </head>
 
+
   <body>
     <div id="refereelist" class="container">
       <div>
@@ -44,25 +45,25 @@
               <div class="mb-3">
                 <!--every input needs to have a label, label tag makes it clickable-->
                 <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName" v-model="offerForm.companyName"> <!--vmodel enable the two way bind-->
+                <input type="text" class="form-control" id="firstName" v-model="refereeForm.firstname"> <!--vmodel enable the two way bind-->
               </div>
               <div class="mb-3">
                 <label for="lastName" class="form-label">Last Name</label>
                 <!--type adds constrains for the input-->
-                <input type="number" class="form-control" v-model="offerForm.salary" id="lastName">
+                <input type="number" class="form-control" v-model="refereeForm.lastname" id="lastName">
               </div>
               <div class="mb-3">
                 <label for="grade" class="form-label">Grade</label>
-                <input type="number" v-model="offerForm.bonus" class="form-control" id="grade">
+                <input type="number" v-model="refereeForm.grade" class="form-control" id="grade">
               </div>
               <div class="mb-3">
                 <label for="age" class="form-label">Age</label>
                 <!--type 'date' automarically gives you a calender-->
-                <input type="date" v-model="offerForm.offerDate" class="form-control" id="age">
+                <input type="date" v-model="refereeForm.age" class="form-control" id="age">
               </div>
               <div class="mb-3">
                 <label for="rating" class="form-label">Rating</label>
-                <input type="number" v-model="offerForm.bonus" class="form-control" id="rating">
+                <input type="number" v-model="refereeForm.rating" class="form-control" id="rating">
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
