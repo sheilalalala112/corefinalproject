@@ -1,0 +1,53 @@
+h1 {
+    border:2px solid black;
+font-family: fantasy;
+padding: 15px;
+font-weight: bold;
+text-decoration: none;
+color: green;
+margin: 15;
+font-size: 300%;
+}
+
+a {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: greenyellow;
+    background-color: black;
+    padding: 10px;
+    }
+  
+    .button:hover {
+        background-color: antiquewhite;
+    }
+    
+    /*!
+     * Bootstrap v5.0.2 (https://getbootstrap.com/)
+     * Copyright 2011-2021 The Bootstrap Authors
+     * Copyright 2011-2021 Twitter, Inc.
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+     */
+
+     h2, .h2 {
+        font-size: calc(1.325rem + 0.9vw);
+      }
+      @media (min-width: 1200px) {
+        h2, .h2 {
+          font-size: 2rem;
+        }
+      }
+      
+      h3, .h3 {
+        font-size: calc(1.3rem + 0.6vw);
+      }
+      @media (min-width: 1200px) {
+        h3, .h3 {
+          font-size: 1.75rem;
+        }
+      }
+  
+      
+      table {
+        caption-side: bottom;
+        border-collapse: collapse;
+      }
