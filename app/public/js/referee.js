@@ -1,7 +1,7 @@
-const refereeList = {
+const RefereeList = {
     data() {
       return {
-        referees: []
+        referees: [],
         refereeForm: {}
       }
     },
@@ -10,7 +10,7 @@ const refereeList = {
     methods: {
         
         fetchRefereeData() {
-            fetch('/api/referee/')
+            fetch('/api/referee/referee.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -21,18 +21,11 @@ const refereeList = {
             })
         },
 
-        postNewReferee(evt) { //event handler for form submission, event object is the default 
-            //select the student id and add another offer into this student
-            //WHAT??
-            // this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
-<<<<<<< Updated upstream
+        postNewReferee(evt) {      
             console.log("Posting:", this.refereeForm);
-=======
-            console.log("Posting:", this.offerForm);
->>>>>>> Stashed changes
             alert("Posting!");
 
-            fetch('api/referee/referee.php', {
+            fetch('api/referee/create.php', {
                 method:'POST',
                 body: JSON.stringify(this.refereeForm),
                 headers: {
@@ -57,4 +50,4 @@ const refereeList = {
   
   }
   
-  Vue.createApp(refereeList).mount('#refereelist');
+  Vue.createApp(RefereeList).mount('#refereelist');
