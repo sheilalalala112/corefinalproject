@@ -32,7 +32,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare( 
-  'INSERT INTO offer (firstname, lastname, grade, age, rating)
+  'INSERT INTO referee (firstname, lastname, grade, age, rating)
   VALUES (?, ?, ?, ?, ?)'
 );
 // pass all these values to the query
@@ -52,5 +52,5 @@ $stmt->execute([
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-// header('HTTP/1.1 303 See Other'); //303 means so far it's succeed, for the rest of the info go to offer/?student='
-// header('Location: ../offer/?student=' . $_POST['studentId']);
+header('HTTP/1.1 303 See Other'); //303 means so far it's succeed, for the rest of the info go to offer/?student='
+header('Location: ../referee/referee.php');
