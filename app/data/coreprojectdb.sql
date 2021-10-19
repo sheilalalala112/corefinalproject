@@ -1,7 +1,7 @@
 use coreproject;
 show create table refere
 
-DROP TABLE if exists referee;
+DROP TABLE IF EXISTS referee;
 CREATE TABLE `referee` (
    `refereeid` INT PRIMARY KEY AUTO_INCREMENT,
    `firstname` varchar(15) NOT NULL,
@@ -21,9 +21,11 @@ CREATE TABLE `referee` (
  DROP TABLE IF EXISTS assignment;
  CREATE TABLE assignment (
 	assid INT PRIMARY KEY AUTO_INCREMENT,
-    assgameid INT REFERENCES game,
-    assrefereeid INT references referee,
-    refereestatus VARCHAR(10)
+    assgameid INT,
+    assrefereeid INT,
+    refereestatus VARCHAR(10),
+    FOREIGN KEY (assgameid) REFERENCES game(gameid),
+    FOREIGN KEY (assrefereeid) REFERENCES referee(refereeid)
 );
 
 insert into referee values (1, 'Tanvi','Hegde', 'C', 35, 78);
