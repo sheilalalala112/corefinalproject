@@ -2,13 +2,13 @@ use coreproject;
 show create table referee
 
 DROP TABLE IF EXISTS referee;
-CREATE TABLE `referee` (
-   `refereeid` INT PRIMARY KEY AUTO_INCREMENT,
-   `firstname` varchar(15) NOT NULL,
-   `lastname` varchar(15) NOT NULL,
-   `grade` int NOT NULL,
-   `age` int NOT NULL,
-   `rating` int NOT NULL
+CREATE TABLE referee (
+   refereeid INT PRIMARY KEY AUTO_INCREMENT,
+   firstname varchar(15) NOT NULL,
+   lastname varchar(15) NOT NULL,
+   grade int NOT NULL,
+   age int NOT NULL,
+   rating int NOT NULL
  );
  
  DROP TABLE IF EXISTS game;
@@ -44,3 +44,4 @@ insert into assignment values (3, 3, 3, 'Tentative');
 select * from game;
 select * from referee;
 select * from assignment;
+
