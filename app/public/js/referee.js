@@ -1,7 +1,8 @@
-const refereeList = {
+const RefereeList = {
     data() {
       return {
-        referees: []
+        referees: [],
+        refereeForm: {}
       }
     },
 
@@ -9,7 +10,7 @@ const refereeList = {
     methods: {
         
         fetchRefereeData() {
-            fetch('/api/referee/')
+            fetch('/api/referee/referee.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -20,16 +21,13 @@ const refereeList = {
             })
         },
 
-        postNewReferee(evt) { //event handler for form submission, event object is the default 
-            //select the student id and add another offer into this student
-            //WHAT??
-            this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
-            console.log("Posting:", this.offerForm);
+        postNewReferee(evt) {      
+            console.log("Posting:", this.refereeForm);
             alert("Posting!");
 
-            fetch('api/referee/referee.php', {
+            fetch('api/referee/create.php', {
                 method:'POST',
-                body: JSON.stringify(this.offerForm),
+                body: JSON.stringify(this.refereeForm),
                 headers: {
                 "Content-Type": "application/json; charset=utf-8"
                 }
@@ -38,10 +36,10 @@ const refereeList = {
             .then( json => {
                 console.log("Returned from post:", json);
                 // TODO: test a result was returned!
-                this.offers = json;
+                this.referees = json;
                 
                 // reset the form
-                this.offerForm = {};
+                this.refereeForm = {};
             });
         }
     },
@@ -52,4 +50,4 @@ const refereeList = {
   
   }
   
-  Vue.createApp(refereeList).mount('#refereelist');
+  Vue.createApp(RefereeList).mount('#refereelist');
