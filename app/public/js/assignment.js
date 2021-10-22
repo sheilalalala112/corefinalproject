@@ -1,7 +1,7 @@
-const refereeList = {
+const assignmentList = {
     data() {
       return {
-        referees: []
+        assignments: []
       }
     },
 
@@ -9,7 +9,7 @@ const refereeList = {
     methods: {
         
         fetchRefereeData() {
-            fetch('/api/referee/')
+            fetch('/api/assignment/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -52,4 +52,4 @@ const refereeList = {
   
   }
   
-  Vue.createApp(refereeList).mount('#refereelist');
+  Vue.createApp(assignmentList).mount('#refereelist');
