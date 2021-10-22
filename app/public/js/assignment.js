@@ -10,7 +10,7 @@ const assignmentsList = {
     methods: {
         
         fetchAssignmentData() {
-            fetch('/api/referee/assignment/')
+            fetch('/api/assignment/assignment.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -28,7 +28,7 @@ const assignmentsList = {
             console.log("Posting:", this.offerForm);
             alert("Posting!");
 
-            fetch('api/referee/assignment/assignment.php', {
+            fetch('api/assignment/assignment.php', {
                 method:'POST',
                 body: JSON.stringify(this.offerForm),
                 headers: {
@@ -48,7 +48,7 @@ const assignmentsList = {
     },
 
     created() {
-        this.fetchRefereeData();
+        this.fetchAssignmentData();
     }
   
   }
