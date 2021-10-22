@@ -1,5 +1,5 @@
 use coreproject;
-show create table referee
+show create table referee;
 
 DROP TABLE IF EXISTS referee;
 CREATE TABLE referee (
@@ -40,8 +40,8 @@ insert into game values (3, 'Prebys', '2021-03-05 23:11:24');
 insert into assignment values (1, 1, 2, 'Accepted');
 insert into assignment values (2, 2, 4, 'Assigned');
 insert into assignment values (3, 3, 3, 'Tentative');
+insert into assignment values (4, 1, 1, 'Assigned');
 
 select * from game;
 select * from referee;
 select * from assignment;
-
