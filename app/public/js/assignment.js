@@ -1,15 +1,16 @@
-const assignmentList = {
+const assignmentsList = {
     data() {
       return {
-        assignments: []
+        assignments: [],
+        assignmentForm: {}
       }
     },
 
     computed: {},
     methods: {
         
-        fetchRefereeData() {
-            fetch('/api/assignment/')
+        fetchAssignmentData() {
+            fetch('/api/referee/assignment/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -20,14 +21,14 @@ const assignmentList = {
             })
         },
 
-        postNewReferee(evt) { //event handler for form submission, event object is the default 
+        postAssignment(evt) { //event handler for form submission, event object is the default 
             //select the student id and add another offer into this student
             //WHAT??
             this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
             console.log("Posting:", this.offerForm);
             alert("Posting!");
 
-            fetch('api/referee/referee.php', {
+            fetch('api/referee/assignment/assignment.php', {
                 method:'POST',
                 body: JSON.stringify(this.offerForm),
                 headers: {
@@ -52,4 +53,4 @@ const assignmentList = {
   
   }
   
-  Vue.createApp(assignmentList).mount('#refereelist');
+  Vue.createApp(assignmentsList).mount('#assignmentlist');

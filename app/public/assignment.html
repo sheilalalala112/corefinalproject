@@ -7,8 +7,11 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
-    <style>
+    <script src="https://unpkg.com/vue@next"></script>
+   
+   <style>
         .game1 {
           background-color: rgba(255, 250, 0, 0.623);
           color: black;
@@ -18,6 +21,15 @@
         }
         .game2 {
           background-color:rgba(196, 50, 25, 0.829);
+          color: black;
+          border: 3px solid black;
+          margin: auto;
+          padding: auto;
+          height: auto;
+          width: auto;
+        }
+        .game3{
+          background-color:rgba(27, 192, 101, 0.829);
           color: black;
           border: 3px solid black;
           margin: auto;
@@ -103,89 +115,68 @@
         </div>
       </nav>
     <h1>Assignment</h1>
-    
-    
-        <div class;="c1">
-    
-        <div class="container-fluid">
-<!-- div row -->
-<!-- div col -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Referee ID: 
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <li><a class="dropdown-item" href="#">001</a></li>
-                <li><a class="dropdown-item" href="#">002</a></li>
-                <li><a class="dropdown-item" href="#">003</a></li>
-                </ul>
-            </div>
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                </div>
-
-            </div>  
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Grade" aria-label="Grade">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Age" aria-label="Age">
-                </div>
+    <div id="assignmentlist" class="container">
+      <div class="row align-items-start">
+        <table id="refereetable" class="row table table-striped table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Assignment ID</th>
+          <th>Game ID</th>
+          <th>Referee ID</th>
+          <th>Ref Status</th>
+          
+        </tr>
+      </thead>
+        <tbody>
+            <tr v-for="a in assignment">
+                <td>{{ a.assid }}</td>
+                <td>{{ a.assgameid }}</td>
+                <td>{{ a.assrefereeid }}</td>
+                <td>{{ a.refereestatus }}</td>
                 
-                </div>
-            
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Rating" aria-label="Rating">
-                </div>
-            </div> 
-
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Game ID" aria-label="Gameid">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-auto">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Are you sure</label>
-                </div>
-                </div>
-            </div>
-
-
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="submit" class="form-control" placeholder="Submit" >
-                </div>
-        
-            </div>
-                
+            </tr>
+        </tbody>
+    </table>
+    <div>
+      <form v-on:submit.prevent="postAssignment"><!--index.js-->
+        <div class="mb-3">
+          <!--every input needs to have a label, label tag makes it clickable-->
+          <label for="title" class="form-label">Assignment ID</label>
+          <input type="number" class="form-control" id="assid" v-model="assignmentForm.assid"> <!--vmodel enable the two way bind-->
         </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Game ID</label>
+          <!--type adds constrains for the input-->
+          <input type="number" class="form-control" v-model="assignmentForm.assgameid" id="assgameid">
+        </div>
+        <div class="mb-3">
+          <label for="yearpublished" class="form-label">Referee ID</label>
+          <input type="number" v-model="assignmentForm.assrefereeid" class="form-control" id="assrefereeid">
+        </div>
+        <div class=mb-3>
+          <label for="publisher" class="form-label">Ref Status</label>
+          <!--type adds constrains for the input-->
+          <input type="text" class="form-control" v-model="assignmentForm.refereestatus" id="refereestatus">
+        </div>
+       
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+    </div>
+    </form>
+    </div>
+
+
+            
+           
+                
+    </div>
        
             
     
         <hr>
-    <!-- div col2 -->
-        <div class="col"
-        <div class\= "c2">
-            <div class="containers">
+    <!-- div col2 
+      
                 <br>
 
                     <div class="game1">
@@ -212,9 +203,13 @@
                 </div>
                 <br>
             
-            </div>   
-        </div>
+            
+        
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script src="js/assignment.js"></script>  
 
   </body>
 </html>

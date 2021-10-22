@@ -32,17 +32,16 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare( 
-  'INSERT INTO assignment (assid, assgameid, assrefereeid, age, rating)
-  VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO assignment (assid, assgameid, assrefereeid, refereestatus)
+  VALUES (?, ?, ?, ?)'
 );
 // pass all these values to the query
 // info be passed later
 $stmt->execute([
-  $_POST['firstname'],
-  $_POST['lastname'],
-  $_POST['grade'],
-  $_POST['age'],
-  $_POST['rating']
+  $_POST['assid'],
+  $_POST['assgameid'],
+  $_POST['assrefereeid'],
+  $_POST['refereestatus'],
 ]);
 
 // Get auto-generated PK from DB
@@ -53,4 +52,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other'); //303 means so far it's succeed, for the rest of the info go to offer/?student='
-header('Location: ../referee/referee.php');
+header('Location: ..assignment/assignment.php');
