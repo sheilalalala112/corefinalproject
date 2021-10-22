@@ -122,6 +122,7 @@ a {
         color: green;
         margin: 15;
         font-size: 300%;
+        background-color: rgb(174, 247, 40);
         }
         
         q {
@@ -129,13 +130,18 @@ a {
         padding: 15px;
         text-decoration: none;
         color: rgb(52, 136, 26);
+        background-color: rgb(174, 247, 40);
         }
         
         footer {
         font-family: sans-serif;
         text-decoration: none;
         font-weight: bold;
+        background-color: rgb(174, 247, 40);
         color: green;
+        border: 10px solid rgb(80, 90, 42);
+        padding: 10px;
+        margin: 10px;
         }
         
         
@@ -168,3 +174,19 @@ a {
             color: white;
             border-radius: 10px;
         }
+
+        
+        body {
+  background-image: url('https://www.qualitylogoproducts.com/sports/full-size-synthetic-leather-soccerball-hq.jpg?size=details_zoomed');
+  background-size: 100px 100px;;
+        }
+
+        p {
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          color:rgb(148, 13, 40);
+          background-color:darkolivegreen;
+          border: 10px solid green;
+          padding: 10px;
+          margin: 10px;
+        }
+
