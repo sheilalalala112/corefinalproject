@@ -1,5 +1,5 @@
-use coreproject;
-show create table referee;
+CREATE DATABASE IF NOT EXISTS coreproject;
+USE coreproject;
 
 DROP TABLE IF EXISTS referee;
 CREATE TABLE referee (
