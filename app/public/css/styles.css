@@ -1,3 +1,8 @@
+@keyframes example {
+  from {background-color: rgb(46, 240, 21);}
+  to {background-color: darkolivegreen;}
+}
+
 h1 {
     border:2px solid black;
 font-family: fantasy;
@@ -203,4 +208,6 @@ a {
           border: 10px solid green;
           padding: 10px;
           margin: 10px;
+          animation-name: example;
+          animation-duration: 4s;
         }
