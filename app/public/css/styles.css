@@ -46,10 +46,22 @@ a {
         }
       }
   
-      
+      tr {
+        color: rgb(194, 16, 16);
+        width: fit-content;
+        padding: 5px;
+      }
+
+
       table {
+        padding: 10px;
+        color: rgba(134, 11, 11, 0.685);
+        border-radius: 10px;
+        width: fit-content;
+        background-color: rgb(27, 90, 27);
         caption-side: bottom;
         border-collapse: collapse;
+        border: 10px solid green;
       }
 
       @media print {
@@ -169,9 +181,12 @@ a {
         
         
         form {
-            background-color: rgba(0, 255, 55, 0.404);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: oblique;
+            background-color: rgb(17, 90, 45);
             padding: 20px;
-            color: white;
+            color: rgba(161, 0, 0, 0.685);
+            border: 10px solid green;
             border-radius: 10px;
         }
 
