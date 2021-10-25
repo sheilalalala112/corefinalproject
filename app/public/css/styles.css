@@ -199,6 +199,14 @@ a {
             border-radius: 10px;
         }
 
+        th {
+          font-weight: bold;
+          font-family: 'Times New Roman', Times, serif;
+          color: rgb(85, 184, 19);
+          width: fit-content;
+          padding: 5px;
+        }
+
         
         body {
   background-image: url('https://www.qualitylogoproducts.com/sports/full-size-synthetic-leather-soccerball-hq.jpg?size=details_zoomed');
