@@ -3,17 +3,6 @@
   to {background-color: darkolivegreen;}
 }
 
-h1 {
-    border:2px solid black;
-font-family: fantasy;
-padding: 15px;
-font-weight: bold;
-text-decoration: none;
-color: green;
-margin: 15;
-font-size: 300%;
-}
-
 a {
     font-family: sans-serif;
     text-decoration: none;
@@ -52,7 +41,9 @@ a {
       }
   
       tr {
-        color: rgb(194, 16, 16);
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(85, 184, 19);
         width: fit-content;
         padding: 5px;
       }
@@ -60,13 +51,14 @@ a {
 
       table {
         padding: 10px;
-        color: rgba(134, 11, 11, 0.685);
+        color: rgb(85, 184, 19);
         border-radius: 10px;
         width: fit-content;
         background-color: rgb(27, 90, 27);
         caption-side: bottom;
         border-collapse: collapse;
         border: 10px solid green;
+        font-weight: bold;
       }
 
       @media print {
@@ -131,15 +123,15 @@ a {
            
                     
         h1 {
-            border:2px solid rgb(22, 110, 84);
-        font-family: fantasy;
+        font-family:cursive;
         padding: 15px;
         font-weight: bold;
         text-decoration: none;
         color: green;
         margin: 15;
         font-size: 300%;
-        background-color: rgb(174, 247, 40);
+        background-image: url('https://images.squarespace-cdn.com/content/v1/523cb0e1e4b0e9062991e4d2/1503598807904-9LJYHRI50W321RMTB8KK/soccer+banner.png?format=2500w');
+        background-size:cover;
         }
         
         q {
@@ -166,7 +158,7 @@ a {
         a {
         font-family: sans-serif;
         text-decoration: none;
-        color: rgb(255, 0, 0);
+        color: rgb(13, 150, 47);
         background-color: rgb(174, 247, 40);
         padding: 10px;
         }
@@ -181,18 +173,27 @@ a {
         
         
         a:hover {
-            color: rgb(0, 255, 55)
+            color: rgb(255, 0, 0)
         }
         
         
         form {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-style: oblique;
+            font-style:normal;
+            font-weight: bold;
             background-color: rgb(17, 90, 45);
             padding: 20px;
-            color: rgba(161, 0, 0, 0.685);
+            color: rgb(85, 184, 19);
             border: 10px solid green;
             border-radius: 10px;
+        }
+
+        th {
+          font-weight: bold;
+          font-family: 'Times New Roman', Times, serif;
+          color: rgb(85, 184, 19);
+          width: fit-content;
+          padding: 5px;
         }
 
         
@@ -203,8 +204,9 @@ a {
 
         p {
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          color:rgb(148, 13, 40);
+          color:rgb(59, 80, 12);
           background-color:darkolivegreen;
+          background-image: url('https://thumbs.dreamstime.com/b/green-grass-background-artificial-grass-soccer-field-outdoor-green-grass-background-artificial-grass-soccer-field-outdoors-158822895.jpg');
           border: 10px solid green;
           padding: 10px;
           margin: 10px;

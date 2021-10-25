@@ -10906,15 +10906,15 @@
        
                 
     h1 {
-        border:2px solid rgb(22, 110, 84);
-    font-family: fantasy;
-    padding: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    color: green;
-    margin: 15;
-    font-size: 300%;
-    }
+      font-family:cursive;
+      padding: 15px;
+      font-weight: bold;
+      text-decoration: none;
+      color: green;
+      margin: 15;
+      font-size: 300%;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/523cb0e1e4b0e9062991e4d2/1503598807904-9LJYHRI50W321RMTB8KK/soccer+banner.png?format=2500w');
+      }
     
     q {
     font-family: serif;
