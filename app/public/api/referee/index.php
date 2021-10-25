@@ -9,13 +9,6 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM referee';
 $vars = [];
 
-
-// if (isset($_GET['student'])) {
-// //   // This is an example of a parameterized query
-//   $sql = 'SELECT * FROM student WHERE studentid = ?';
-//   $vars = [ $_GET['student'] ];
-// }
-
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
