@@ -199,6 +199,14 @@ a {
             border-radius: 10px;
         }
 
+        th {
+          font-weight: bold;
+          font-family: 'Times New Roman', Times, serif;
+          color: rgb(85, 184, 19);
+          width: fit-content;
+          padding: 5px;
+        }
+
         
         body {
   background-image: url('https://www.qualitylogoproducts.com/sports/full-size-synthetic-leather-soccerball-hq.jpg?size=details_zoomed');
@@ -207,8 +215,9 @@ a {
 
         p {
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          color:rgb(132, 179, 24);
+          color:rgb(59, 80, 12);
           background-color:darkolivegreen;
+          background-image: url('https://thumbs.dreamstime.com/b/green-grass-background-artificial-grass-soccer-field-outdoor-green-grass-background-artificial-grass-soccer-field-outdoors-158822895.jpg');
           border: 10px solid green;
           padding: 10px;
           margin: 10px;
