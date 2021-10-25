@@ -10,7 +10,7 @@ const GameList = {
     methods: {
         
         fetchGameData() {
-            fetch('/api/referee/game.php')
+            fetch('/api/game/index.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -25,7 +25,7 @@ const GameList = {
             console.log("Posting:", this.gameForm);
             alert("Posting!");
 
-            fetch('api/referee/create.php', {
+            fetch('api/game/create.php', {
                 method:'POST',
                 body: JSON.stringify(this.gameForm),
                 headers: {
