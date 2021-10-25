@@ -2,7 +2,8 @@ const RefereeList = {
   data() {
     return {
       referees: [],
-      refereeForm: {}
+      refereeForm: {},
+      selectedReferee: null
     }
   },
 
@@ -21,28 +22,61 @@ const RefereeList = {
           })
       },
 
-      // postNewBook(evt) { //event handler for form submission, event object is the default 
-      //     //select the student id and add another offer into this student     
-      //     console.log("Posting:", this.bookForm);
-      //     alert("Posting!");
+      postBook(evt) { // evt - object 
+        console.log ("Test:", this.selectedBook);
+      if (this.selectedBook) { // if it's not null/info exists, call posteditbook, if the info doesn't exist, then its a new entry
+          this.postEditBook(evt);
+      } else {
+          this.postNewBook(evt);
+      }
+    },
 
-      //     fetch('api/book/create.php', {
-      //         method:'POST',
-      //         body: JSON.stringify(this.bookForm),
-      //         headers: {
-      //         "Content-Type": "application/json; charset=utf-8"
-      //         }
-      //     })
-      //     .then( response => response.json() )
-      //     .then( json => {
-      //         console.log("Returned from post:", json);
-      //         // TODO: test a result was returned!
-      //         this.books = json;
+    postEditBook(evt) {
+        this.bookForm.id = this.selectedBook.id;
+        // this.offerForm.studentId = this.selectedStudent.id;        
+        
+        console.log("Editing!", this.bookForm);
+        alert("Editing!");
+        fetch('api/book/update.php', {
+            method:'POST',
+            body: JSON.stringify(this.bookForm),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8"
+            }
+          })
+          .then( response => response.json() )
+          .then( json => {
+            console.log("Returned from post:", json);
+            // TODO: test a result was returned!
+            this.books = json;
+            
+            // reset the form
+            this.handleResetEdit();
+          });
+    },
+
+      postNewReferee(evt) { //event handler for form submission, event object is the default 
+          //select the student id and add another offer into this student     
+          console.log("Posting:", this.refereeForm);
+          alert("Posting!");
+
+          fetch('api/referee/create.php', {
+              method:'POST',
+              body: JSON.stringify(this.refereeForm),
+              headers: {
+              "Content-Type": "application/json; charset=utf-8"
+              }
+          })
+          .then( response => response.json() )
+          .then( json => {
+              console.log("Returned from post:", json);
+              // TODO: test a result was returned!
+              this.referees = json;
               
-      //         // reset the form
-      //         this.bookForm = {};
-      //     });
-      // }
+              // reset the form
+              this.refereeForm = {};
+          });
+      }
 
   },
 

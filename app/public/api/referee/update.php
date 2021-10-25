@@ -5,15 +5,14 @@
 //     exit;
 // }
 
-// if everything is the try dies catch will do 
 try {
-    $_POST = json_decode( 
-                file_get_contents('php://input'), //get everything in the body of the request
+    $_POST = json_decode(
+                file_get_contents('php://input'), 
                 true,
-                2, //Depth of 2 is the deepest it will go
-                JSON_THROW_ON_ERROR //parameter, don't fail silently
+                2,
+                JSON_THROW_ON_ERROR
             );
-} catch (Exception $e) { //if it dies, send a 400--> user error then exit 
+} catch (Exception $e) {
     header($_SERVER["SERVER_PROTOCOL"] . " 400 Bad Request");
     // print_r($_POST);
     // echo file_get_contents('php://input');
@@ -31,18 +30,23 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
-$stmt = $db->prepare( 
-  'INSERT INTO referee (firstname, lastname, grade, age, rating)
-  VALUES (?, ?, ?, ?, ?)'
+$stmt = $db->prepare( // click then info about the book appear from this code??? Do I need ID ? 
+  'UPDATE referee SET 
+    firstname = ?,
+    lastname = ?,
+    grade = ?,
+    age = ?,
+    rating = ?
+  WHERE id = ?' //auto refer to auto-incremented id, always need id for the specific thing, else all titles will be changed
 );
-// pass all these values to the query
-// info be passed later
+
 $stmt->execute([
   $_POST['firstname'],
   $_POST['lastname'],
   $_POST['grade'],
   $_POST['age'],
-  $_POST['rating']
+  $_POST['rating'],
+  $_POST['id'] 
 ]);
 
 // Get auto-generated PK from DB
@@ -52,5 +56,5 @@ $stmt->execute([
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-header('HTTP/1.1 303 See Other'); //303 means so far it's succeed, for the rest of the info go to offer/?student='
+header('HTTP/1.1 303 See Other');
 header('Location: ../referee/index.php');
