@@ -16,13 +16,13 @@ $vars = [];
 //   $vars = [ $_GET['student'] ];
 // }
 
-$stmt = $db->prepare($sql);
+$stmt = $db->prespare($sql);
 $stmt->execute($vars);
 
-$referees = $stmt->fetchAll();
+$assignments = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($referees, JSON_PRETTY_PRINT);
+$json = json_encode($assignments, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');

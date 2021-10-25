@@ -1,24 +1,23 @@
 const assignmentsList = {
     data() {
-      return {
-        assignments: [],
-        assignmentForm: {}
-      }
+        return {
+            assignments: [],
+            assignmentForm: {}
+        }
     },
-
     computed: {},
     methods: {
-        
+
         fetchAssignmentData() {
-            fetch('/api/assignment/assignment.php')
-            .then( response => response.json() )
-            .then( (responseJson) => {
-                console.log(responseJson);
-                this.referees = responseJson;
-            })
-            .catch( (err) => {
-                console.error(err);
-            })
+            fetch('/api/assignment/index.php')
+                .then(response => response.json())
+                .then((responseJson) => {
+                    console.log(responseJson);
+                    this.assignments = responseJson;
+                })
+                .catch((err) => {
+                    console.error(err);
+                })
         },
 
         postAssignment(evt) { //event handler for form submission, event object is the default 
@@ -28,29 +27,29 @@ const assignmentsList = {
             console.log("Posting:", this.offerForm);
             alert("Posting!");
 
-            fetch('api/assignment/assignment.php', {
-                method:'POST',
+            fetch('/api/assignment/index.php', {
+                method: 'POST',
                 body: JSON.stringify(this.offerForm),
                 headers: {
-                "Content-Type": "application/json; charset=utf-8"
+                    "Content-Type": "application/json; charset=utf-8"
                 }
             })
-            .then( response => response.json() )
-            .then( json => {
-                console.log("Returned from post:", json);
-                // TODO: test a result was returned!
-                this.offers = json;
-                
-                // reset the form
-                this.offerForm = {};
-            });
+                .then(response => response.json())
+                .then(json => {
+                    console.log("Returned from post:", json);
+                    // TODO: test a result was returned!
+                    this.offers = json;
+
+                    // reset the form
+                    this.offerForm = {};
+                });
         }
     },
 
     created() {
         this.fetchAssignmentData();
     }
-  
-  }
-  
-  Vue.createApp(assignmentsList).mount('#assignmentlist');
+
+}
+
+Vue.createApp(assignmentsList).mount('#assignmentsList');
