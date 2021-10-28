@@ -16,7 +16,7 @@ $vars = [];
 //   $vars = [ $_GET['student'] ];
 // }
 
-$stmt = $db->prespare($sql);
+$stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
 $assignments = $stmt->fetchAll();

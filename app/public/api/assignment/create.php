@@ -32,16 +32,16 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare( 
-  'INSERT INTO assignment (assid, assgameid, assrefereeid, refereestatus)
-  VALUES (?, ?, ?, ?)'
+  'INSERT INTO assignment (assgameid, assrefereeid, refereestatus)
+  VALUES (?, ?, ?)'
 );
 // pass all these values to the query
 // info be passed later
 $stmt->execute([
-  $_POST['assid'],
+  
   $_POST['assgameid'],
   $_POST['assrefereeid'],
-  $_POST['refereestatus'],
+  $_POST['refereestatus']
 ]);
 
 // Get auto-generated PK from DB

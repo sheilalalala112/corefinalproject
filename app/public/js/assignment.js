@@ -23,13 +23,13 @@ const assignmentsList = {
         postAssignment(evt) { //event handler for form submission, event object is the default 
             //select the student id and add another offer into this student
             //WHAT??
-            this.offerForm.studentId = this.selectedStudent.id; //now we can insert a new row in the table       
-            console.log("Posting:", this.offerForm);
+                 
+            console.log("Posting:", this.assignmentForm);
             alert("Posting!");
 
-            fetch('/api/assignment/index.php', {
+            fetch('/api/assignment/create.php', {
                 method: 'POST',
-                body: JSON.stringify(this.offerForm),
+                body: JSON.stringify(this.assignmentForm),
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
@@ -38,10 +38,10 @@ const assignmentsList = {
                 .then(json => {
                     console.log("Returned from post:", json);
                     // TODO: test a result was returned!
-                    this.offers = json;
+                    this.assignments = json;
 
                     // reset the form
-                    this.offerForm = {};
+                    this.assignmentForm = {};
                 });
         }
     },
