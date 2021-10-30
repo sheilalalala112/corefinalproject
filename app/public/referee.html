@@ -37,14 +37,18 @@
                 <td>{{ referee.grade }}</td>
                 <td>{{ referee.age }}</td>
                 <td>{{ referee.rating }}</td>
+                <td></td>
+                <td>
+                  <button type="button" v-on:click="handleEditReferee(referee)" class="btn btn-outline-secondary btn-sm">Edit</button>
+                  <button type="button" v-on:click="postDeleteReferee(referee)" class="btn btn-outline-secondary btn-sm">Delete</button>
+                </td>
               </tr>
           </tbody>  
         </table><br>
       
 
-        
-      
-        <form v-on:submit.prevent="postNewReferee"><!--index.js-->
+        <h3>{{ selectedReferee === null ? "Add " : "Edit " }} Referee</h3>
+        <form v-on:submit.prevent="postReferee"><!--index.js-->
           <div class="mb-3">
             <!--every input needs to have a label, label tag makes it clickable-->
             <label for="firstName" class="form-label">First Name</label>
@@ -68,7 +72,11 @@
             <label for="rating" class="form-label">Rating</label>
             <input type="number" v-model="refereeForm.rating" class="form-control" id="rating">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">{{ selectedReferee === null ? "Add " : "Edit " }}Referee</button>
+          <button type="button" class="btn btn-outline-secondary" 
+             v-if="selectedReferee"
+             v-on:click="handleResetEdit">Cancel Edit
+          </button>
         </form>
             
         

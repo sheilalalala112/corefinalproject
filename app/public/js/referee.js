@@ -22,24 +22,23 @@ const RefereeList = {
           })
       },
 
-      postBook(evt) { // evt - object 
-        console.log ("Test:", this.selectedBook);
-      if (this.selectedBook) { // if it's not null/info exists, call posteditbook, if the info doesn't exist, then its a new entry
-          this.postEditBook(evt);
+      postReferee(evt) { // evt - object 
+        console.log ("Test:", this.selectedReferee);
+      if (this.selectedReferee) { // if it's not null/info exists, call posteditbook, if the info doesn't exist, then its a new entry
+          this.postEditReferee(evt);
       } else {
-          this.postNewBook(evt);
+          this.postNewReferee(evt);
       }
     },
 
-    postEditBook(evt) {
-        this.bookForm.id = this.selectedBook.id;
-        // this.offerForm.studentId = this.selectedStudent.id;        
+    postEditReferee(evt) {
+        this.refereeForm.id = this.selectedReferee.id;       
         
-        console.log("Editing!", this.bookForm);
+        console.log("Editing!", this.refereeForm);
         alert("Editing!");
-        fetch('api/book/update.php', {
+        fetch('api/referee/update.php', {
             method:'POST',
-            body: JSON.stringify(this.bookForm),
+            body: JSON.stringify(this.refereeForm),
             headers: {
               "Content-Type": "application/json; charset=utf-8"
             }
@@ -48,7 +47,7 @@ const RefereeList = {
           .then( json => {
             console.log("Returned from post:", json);
             // TODO: test a result was returned!
-            this.books = json;
+            this.referees = json;
             
             // reset the form
             this.handleResetEdit();
@@ -76,7 +75,41 @@ const RefereeList = {
               // reset the form
               this.refereeForm = {};
           });
-      }
+      },
+
+      postDeleteReferee(r) {  
+        if ( !confirm("Are you sure you want to delete referee " + r.firstname + "?") ) {
+            return;
+        }  
+        
+        console.log("Delete!", r);
+
+        fetch('api/referee/delete.php', {
+            method:'POST',
+            body: JSON.stringify(r),
+            headers: {
+              "Content-Type": "application/json; charset=utf-8"
+            }
+          })
+          .then( response => response.json() )
+          .then( json => {
+            console.log("Returned from post:", json);
+            // TODO: test a result was returned!
+            this.referees = json;
+            
+            // reset the form
+            this.handleResetEdit();
+          });
+      },
+
+      handleEditReferee(referee) {
+        this.selectedReferee = referee;
+        this.refereeForm = Object.assign({}, this.selectedReferee);
+    },
+      handleResetEdit() { 
+        this.selectedReferee = null;
+        this.refereeForm = {};
+    }
 
   },
 
