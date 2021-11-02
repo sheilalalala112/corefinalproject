@@ -21,8 +21,8 @@ CREATE TABLE `referee` (
  DROP TABLE IF EXISTS assignment;
  CREATE TABLE assignment (
 	assid INT PRIMARY KEY AUTO_INCREMENT,
-    assgameid INT REFERENCES game,
-    assrefereeid INT references referee,
+    assgameid INT REFERENCES game(gameid),
+    assrefereeid INT references referee(refereeid),
     refereestatus VARCHAR(10)
 );
 
