@@ -70,8 +70,8 @@
         <tbody>
           <tr v-for="a in assignments">
             <td>{{ a.assid }}</td>
-            <td>{{ a.assgameid }}</td>
-            <td>{{ a.assrefereeid }}</td>
+            <td>{{ a.gameid }}</td>
+            <td>{{ a.refereeid }}</td>
             <td>{{ a.refereestatus }}</td>
 
           </tr>
@@ -80,12 +80,7 @@
       <div>
         <form v-on:submit.prevent="postAssignment">
           <!--index.js-->
-          <div class="mb-3">
-            <!--every input needs to have a label, label tag makes it clickable-->
-            <label for="assid" class="form-label">Assignment ID</label>
-            <input type="number" class="form-control" id="assid" v-model="assignmentForm.assid">
-            <!--vmodel enable the two way bind-->
-          </div>
+         
           <div class="mb-3">
             <label for="assgameid" class="form-label">Game ID</label>
             <!--type adds constrains for the input-->
@@ -93,7 +88,11 @@
           </div>
           <div class="mb-3">
             <label for="assrefereeid" class="form-label">Referee ID</label>
-            <input type="number" v-model="assignmentForm.assrefereeid" class="form-control" id="assrefereeid">
+            <select  v-model="assignmentForm.assrefereeid" class="form-select" id="assrefereeid">
+              <option v-for="r in Referees" v-bind:value="r.refereeid">
+                {{ r.name}}
+              </option>
+              </select>
           </div>
           <div class=mb-3>
             <label for="refereestatus" class="form-label">Ref Status</label>

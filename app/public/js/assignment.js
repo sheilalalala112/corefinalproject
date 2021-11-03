@@ -2,7 +2,8 @@ const assignmentsList = {
     data() {
         return {
             assignments: [],
-            assignmentForm: {}
+            assignmentForm: {},
+            Referees: []
         }
     },
     computed: {},
@@ -14,6 +15,17 @@ const assignmentsList = {
                 .then((responseJson) => {
                     console.log(responseJson);
                     this.assignments = responseJson;
+                })
+                .catch((err) => {
+                    console.error(err);
+                })
+        },
+        fetchRefereeData() {
+            fetch('/api/referee/index.php')
+                .then(response => response.json())
+                .then((responseJson) => {
+                    console.log(responseJson);
+                    this.Referees = responseJson;
                 })
                 .catch((err) => {
                     console.error(err);
@@ -48,6 +60,8 @@ const assignmentsList = {
 
     created() {
         this.fetchAssignmentData();
+
+        this.fetchRefereeData();
     }
 
 }
