@@ -1,0 +1,215 @@
+@keyframes example {
+  from {background-color: rgb(46, 240, 21);}
+  to {background-color: darkolivegreen;}
+}
+
+a {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: greenyellow;
+    background-color: black;
+    padding: 10px;
+    }
+  
+    .button:hover {
+        background-color: antiquewhite;
+    }
+    
+    /*!
+     * Bootstrap v5.0.2 (https://getbootstrap.com/)
+     * Copyright 2011-2021 The Bootstrap Authors
+     * Copyright 2011-2021 Twitter, Inc.
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+     */
+
+     h2, .h2 {
+        font-size: calc(1.325rem + 0.9vw);
+      }
+      @media (min-width: 1200px) {
+        h2, .h2 {
+          font-size: 2rem;
+        }
+      }
+      
+      h3, .h3 {
+        font-size: calc(1.3rem + 0.6vw);
+      }
+      @media (min-width: 1200px) {
+        h3, .h3 {
+          font-size: 1.75rem;
+        }
+      }
+  
+      tr {
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(85, 184, 19);
+        width: fit-content;
+        padding: 5px;
+      }
+
+
+      table {
+        padding: 10px;
+        color: rgb(85, 184, 19);
+        border-radius: 10px;
+        width: fit-content;
+        background-color: rgb(27, 90, 27);
+        caption-side: bottom;
+        border-collapse: collapse;
+        border: 10px solid green;
+        font-weight: bold;
+      }
+
+      @media print {
+        .d-print-inline {
+          display: inline !important;
+        }
+      
+        .d-print-inline-block {
+          display: inline-block !important;
+        }
+      
+        .d-print-block {
+          display: block !important;
+        }
+      
+        .d-print-grid {
+          display: grid !important;
+        }
+      
+        .d-print-table {
+          display: table !important;
+        }
+      
+        .d-print-table-row {
+          display: table-row !important;
+        }
+      
+        .d-print-table-cell {
+          display: table-cell !important;
+        }
+      
+        .d-print-flex {
+          display: flex !important;
+        }
+      
+        .d-print-inline-flex {
+          display: inline-flex !important;
+        }
+      
+        .d-print-none {
+          display: none !important;
+        }
+      }
+      .icon-list {
+          padding-left: 0;
+          list-style: none;
+        }
+        .icon-list li {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: .25rem;
+        }
+        .icon-list li::before {
+          display: block;
+          flex-shrink: 0;
+          width: 1.5em;
+          height: 1.5em;
+          margin-right: .5rem;
+          content: "";
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+        }
+           
+                    
+        h1 {
+        font-family:cursive;
+        padding: 15px;
+        font-weight: bold;
+        text-decoration: none;
+        color: green;
+        margin: 15;
+        font-size: 300%;
+        background-image: url('https://images.squarespace-cdn.com/content/v1/523cb0e1e4b0e9062991e4d2/1503598807904-9LJYHRI50W321RMTB8KK/soccer+banner.png?format=2500w');
+        background-size:cover;
+        }
+        
+        q {
+        font-family: serif;
+        padding: 15px;
+        text-decoration: none;
+        color: rgb(52, 136, 26);
+        background-color: rgb(174, 247, 40);
+        }
+        
+        footer {
+        font-family: sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        background-color: rgb(174, 247, 40);
+        color: green;
+        border: 10px solid rgb(80, 90, 42);
+        padding: 10px;
+        margin: 10px;
+        }
+        
+        
+        
+        a {
+        font-family: sans-serif;
+        text-decoration: none;
+        color: rgb(13, 150, 47);
+        background-color: rgb(174, 247, 40);
+        padding: 10px;
+        }
+        
+        
+        
+        po {
+            border:2px solid rgba(11, 80, 11, 0.438);
+            font-family: monospace;
+            padding: 15px;
+        }
+        
+        
+        a:hover {
+            color: rgb(255, 0, 0)
+        }
+        
+        
+        form {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style:normal;
+            font-weight: bold;
+            background-color: rgb(17, 90, 45);
+            padding: 20px;
+            color: rgb(85, 184, 19);
+            border: 10px solid green;
+            border-radius: 10px;
+        }
+
+        th {
+          font-weight: bold;
+          font-family: 'Times New Roman', Times, serif;
+          color: rgb(85, 184, 19);
+          width: fit-content;
+          padding: 5px;
+        }
+
+        
+        body {
+  background-image: url('https://www.qualitylogoproducts.com/sports/full-size-synthetic-leather-soccerball-hq.jpg?size=details_zoomed');
+  background-size: 100px 100px;;
+        }
+
+        p {
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          color:rgb(59, 80, 12);
+          background-color:darkolivegreen;
+          background-image: url('https://thumbs.dreamstime.com/b/green-grass-background-artificial-grass-soccer-field-outdoor-green-grass-background-artificial-grass-soccer-field-outdoors-158822895.jpg');
+          border: 10px solid green;
+          padding: 10px;
+          margin: 10px;
+          animation-name: example;
+          animation-duration: 4s;
+        }
