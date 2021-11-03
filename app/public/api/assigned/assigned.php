@@ -6,10 +6,10 @@ require 'class/DbConnection.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT a., a.media, a.pub_year, s.name
+$sql = 'SELECT a.gameid, a.refereeid, r.firstname, r.lastname, 
 FROM assignment AS a, referee AS r, game AS g
-WHERE a.assrefereeid = r.refereeid
-AND a.assgameid = b.assgameid
+WHERE a.refereeid = r.refereeid
+AND a.gameid = g.gameid
 AND a.refereestatus = "Assigned";';
 $vars = [];
 
