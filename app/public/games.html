@@ -20,7 +20,7 @@
       });  
       </script> 
     <!--code copied from https://www.phpcluster.com/change-the-date-format-to-yyyy-mm-dd-in-datepicker/-->
-    
+
     <script src="https://unpkg.com/vue@next"></script>
     
   </head>
@@ -73,9 +73,11 @@
         <label for="gametime">Select a time:</label>
         <input type="time" id="gametime" name="gametime">
       </div>
-
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add " : "Edit " }}Game</button>
+        <button type="button" class="btn btn-outline-secondary" 
+          v-if="selectedGame"
+          v-on:click="handleResetEdit">Cancel Edit
+        </button>
     </form>
   </div>
 </div>
