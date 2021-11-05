@@ -33,7 +33,7 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare( 
   'INSERT INTO game (field, gamedate, gametime)
-  VALUES (?, ?, ?)'
+    VALUES (?, ?, ?)'
 );
 // pass all these values to the query
 // info be passed later
