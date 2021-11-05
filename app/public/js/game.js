@@ -38,7 +38,7 @@ const GameList = {
             alert("Editing!");
             fetch('api/game/update.php', {
                 method:'POST',
-                body: JSON.stringify(this.refereeForm),
+                body: JSON.stringify(this.gameForm),
                 headers: {
                   "Content-Type": "application/json; charset=utf-8"
                 }
