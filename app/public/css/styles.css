@@ -59,6 +59,7 @@ a {
         border-collapse: collapse;
         border: 10px solid green;
         font-weight: bold;
+        table-layout: fixed;
       }
 
       @media print {
@@ -164,6 +165,14 @@ a {
         }
         
         
+        h3 {
+          font-family: sans-serif;
+          text-decoration: none;
+          color: rgb(13, 150, 47);
+          background-color: rgb(174, 247, 40);
+          padding: 10px;
+          }
+
         
         po {
             border:2px solid rgba(11, 80, 11, 0.438);
