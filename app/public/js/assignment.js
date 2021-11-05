@@ -10,7 +10,7 @@ const assignmentsList = {
     methods: {
 
         fetchAssignmentData() {
-            fetch('/api/assignment/index.php')
+            fetch('/api/assignment/assignment.php')
                 .then(response => response.json())
                 .then((responseJson) => {
                     console.log(responseJson);
@@ -21,7 +21,7 @@ const assignmentsList = {
                 })
         },
         fetchRefereeData() {
-            fetch('/api/referee/index.php')
+            fetch('/api/referee/assignment.php')
                 .then(response => response.json())
                 .then((responseJson) => {
                     console.log(responseJson);
@@ -45,7 +45,7 @@ const assignmentsList = {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
-            })
+            })r
                 .then(response => response.json())
                 .then(json => {
                     console.log("Returned from post:", json);
