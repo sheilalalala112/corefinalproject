@@ -48,17 +48,12 @@
     <h3>{{ selectedReferee === null ? "Add " : "Edit " }} Game</h3>
     <form v-on:submit.prevent="postNewGame"><!--index.js-->
       <div class="mb-3">
-        <!--every input needs to have a label, label tag makes it clickable-->
-        <label for="gameid" class="form-label">Game ID</label>
-        <input type="text" class="form-control" id="gameid" v-model="gameForm.gameid"> <!--vmodel enable the two way bind-->
-      </div>
-      <div class="mb-3">
         <label for="field" class="form-label">Field</label>
         <!--type adds constrains for the input-->
         <input type="text" class="form-control" v-model="gameForm.field" id="field">
       </div>
       <div class="mb-3">
-        <label for="gametime" class="form-label">DateTime</label>
+        <label for="gametime" class="form-label">Time</label>
         <input type="text" v-model="gameForm.gametime" class="form-control" id="gametime">
       </div>
   
