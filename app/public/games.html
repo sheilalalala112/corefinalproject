@@ -25,10 +25,10 @@
         <div class="row align-items-start">
           <table id="gametable" class="row table table-striped table-hover table-condensed">
             <thead>
-              <tr>
-                <th>Game ID</th>	
+              <tr>	
                 <th>Field</th>	
-                <th>DateTime</th>
+                <th>Game Date</th>
+                <th>Game Time</th>
               </tr>
             </thead>
 
@@ -36,27 +36,33 @@
         <tr v-for="game in game">
           <td>{{ game.gameid }}</td>
           <td>{{ game.field }}</td>	
+          <td>{{ game.gamedate }}</td>
           <td>{{ game.gametime }}</td>
           <td>
-            <button type="button" v-on:click="handleEditReferee(referee)" class="btn btn-outline-secondary btn-sm">Edit</button>
-            <button type="button" v-on:click="postDeleteReferee(referee)" class="btn btn-outline-secondary btn-sm">Delete</button>
+            <button type="button" v-on:click="handleEditGame(game)" class="btn btn-outline-secondary btn-sm">Edit</button>
+            <button type="button" v-on:click="postDeleteGame(game)" class="btn btn-outline-secondary btn-sm">Delete</button>
           </td>
         </tr>
       </tbody>
     </table><br>
 
-    <h3>{{ selectedReferee === null ? "Add " : "Edit " }} Game</h3>
-    <form v-on:submit.prevent="postNewGame"><!--index.js-->
+    <h3>{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
+    <form v-on:submit.prevent="postGame"><!--index.js-->
       <div class="mb-3">
         <label for="field" class="form-label">Field</label>
         <!--type adds constrains for the input-->
         <input type="text" class="form-control" v-model="gameForm.field" id="field">
       </div>
-      <div class="mb-3">
-        <label for="gametime" class="form-label">Time</label>
-        <input type="text" v-model="gameForm.gametime" class="form-control" id="gametime">
+      <div>
+        <label for="gamedate">Game Date:</label>
+        <input type="date" id="gamedate" name="gamedate">
       </div>
-  
+      <div>
+        <label for="gametime">Select a time:</label>
+        <input type="time" id="gametime" name="gametime">
+      </div>
+
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>

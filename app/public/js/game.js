@@ -79,37 +79,39 @@ const GameList = {
               });
           },
 
-          handleEditGame(game) {
-            this.selectedGame = game;
-            this.gameForm = Object.assign({}, this.selectedGame);
-        },
+
+        postNewGame(evt) { //event handler for form submission, event object is the default 
+          //select the student id and add another offer into this student     
+          console.log("Posting:", this.gameForm);
+          alert("Posting!");
+
+          fetch('api/game/create.php', {
+              method:'POST',
+              body: JSON.stringify(this.gameForm),
+              headers: {
+              "Content-Type": "application/json; charset=utf-8"
+              }
+          })
+          .then( response => response.json() )
+          .then( json => {
+              console.log("Returned from post:", json);
+              // TODO: test a result was returned!
+              this.game = json;
+              
+              // reset the form
+              this.gameForm = {};
+          });
+      },
+
+        handleEditGame(game) {
+          this.selectedGame = game;
+          this.gameForm = Object.assign({}, this.selectedGame);
+      },
 
         handleResetEdit() { 
-            this.selectedGame = null;
-            this.gameForm = {};
-        },
-
-        postNewGame(evt) {      
-            console.log("Posting:", this.gameForm);
-            alert("Posting!");
-
-            fetch('api/game/create.php', {
-                method:'POST',
-                body: JSON.stringify(this.gameForm),
-                headers: {
-                "Content-Type": "application/json; charset=utf-8"
-                }
-            })
-            .then( response => response.json() )
-            .then( json => {
-                console.log("Returned from post:", json);
-                // TODO: test a result was returned!
-                this.game = json;
-                
-                // reset the form
-                this.gameForm = {};
-            });
-        }
+          this.selectedGame = null;
+          this.gameForm = {};
+      }
     },
 
     created() {

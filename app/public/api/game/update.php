@@ -32,16 +32,17 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare( // click then info about the book appear from this code??? Do I need ID ? 
   'UPDATE game SET 
-    gameid = ?,
     field = ?,
+    gamedate = ?,
     gametime = ?
   WHERE gameid = ?' //auto refer to auto-incremented id, always need id for the specific thing, else all titles will be changed
 );
 
 $stmt->execute([
-    $_POST['gameid'],
     $_POST['field'],
-    $_POST['gametime']
+    $_POST['gamedate'],
+    $_POST['gametime'],
+    $_POST['gameid']
 ]);
 
 // Get auto-generated PK from DB
