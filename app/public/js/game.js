@@ -7,7 +7,13 @@ const GameList = {
       }
     },
 
-    computed: {},
+    //set date format for adding game date
+    computed: {
+      prettyDate() {
+          return dayjs(this.game.gamedate)
+          .format('DD MMM YYYY');
+      }
+  },
     methods: {
         
         fetchGameData() {
