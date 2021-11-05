@@ -45,7 +45,7 @@ const assignmentsList = {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
-            })r
+            })
                 .then(response => response.json())
                 .then(json => {
                     console.log("Returned from post:", json);
