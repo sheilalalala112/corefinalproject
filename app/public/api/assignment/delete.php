@@ -29,20 +29,15 @@ require("class/DbConnection.php");
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 
-// Step 2: Create & run the query
+// Step 2: change the query to delete the whole row in the offer table 
 // Note the use of parameterized statements to avoid injection
-$stmt = $db->prepare( 
-  'INSERT INTO referee (firstname, lastname, grade, age, rating)
-  VALUES (?, ?, ?, ?, ?)'
+$stmt = $db->prepare(
+  'DELETE FROM referee WHERE refereeid = ?'
 );
 // pass all these values to the query
 // info be passed later
 $stmt->execute([
-  $_POST['firstname'],
-  $_POST['lastname'],
-  $_POST['grade'],
-  $_POST['age'],
-  $_POST['rating']
+  $_POST['refereeid']
 ]);
 
 // Get auto-generated PK from DB
@@ -53,4 +48,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other'); //303 means so far it's succeed, for the rest of the info go to offer/?student='
-header('Location: ../referee/index.php');
+header('Location: ../referee/');//what is this?
