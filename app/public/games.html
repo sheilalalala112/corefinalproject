@@ -37,10 +37,15 @@
           <td>{{ game.gameid }}</td>
           <td>{{ game.field }}</td>	
           <td>{{ game.gametime }}</td>
+          <td>
+            <button type="button" v-on:click="handleEditReferee(referee)" class="btn btn-outline-secondary btn-sm">Edit</button>
+            <button type="button" v-on:click="postDeleteReferee(referee)" class="btn btn-outline-secondary btn-sm">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table><br>
 
+    <h3>{{ selectedReferee === null ? "Add " : "Edit " }} Game</h3>
     <form v-on:submit.prevent="postNewGame"><!--index.js-->
       <div class="mb-3">
         <!--every input needs to have a label, label tag makes it clickable-->
