@@ -9,8 +9,8 @@ const GameList = {
 
     //set date format for adding game date
     computed: {
-      prettyDate() {
-          return dayjs(this.game.gamedate)
+      prettyDate(d) {
+          return dayjs(d)
           .format('DD MMM YYYY');
       }
   },

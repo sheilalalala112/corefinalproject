@@ -8,17 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-
-    <!--import Bootstrap datepicker-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script> 
-    <script> 
-      $( document ).ready(function() {     
-      $("#from-datepicker").datepicker({          
-      format: 'yyyy-mm-dd' //can also use format: 'dd-mm-yyyy'     
-      });      
-      });  
-      </script> 
+ 
     <!--code copied from https://www.phpcluster.com/change-the-date-format-to-yyyy-mm-dd-in-datepicker/-->
 
     <script src="https://unpkg.com/vue@next"></script>
@@ -45,13 +35,13 @@
             </thead>
 
       <tbody>
-        <tr v-for="game in game">
-          <td>{{ game.field }}</td>	
-          <td>{{ game.gamedate }}</td>
-          <td>{{ game.gametime }}</td>
+        <tr v-for="g in game">
+          <td>{{ g.field }}</td>	
+          <td>{{ g.gamedate }}</td>
+          <td>{{ g.gametime }}</td>
           <td>
-            <button type="button" v-on:click="handleEditGame(game)" class="btn btn-outline-secondary btn-sm">Edit</button>
-            <button type="button" v-on:click="postDeleteGame(game)" class="btn btn-outline-secondary btn-sm">Delete</button>
+            <button type="button" v-on:click="handleEditGame(g)" class="btn btn-outline-secondary btn-sm">Edit</button>
+            <button type="button" v-on:click="postDeleteGame(g)" class="btn btn-outline-secondary btn-sm">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -67,11 +57,11 @@
       <div>
         <label for="gamedate">Game Date:</label>
         <!-- <input type="date" id="gamedate" name="gamedate"> -->
-        <input type="text" id="from-datepicker" name="gamedate">  
+        <input type="date" id="gamedate" name="gamedate" v-model="gameForm.gamedate">  
       </div>
       <div>
         <label for="gametime">Select a time:</label>
-        <input type="time" id="gametime" name="gametime">
+        <input type="time" id="gametime" name="gametime" v-model="gameForm.gametime">
       </div>
         <button type="submit" class="btn btn-primary">{{ selectedGame === null ? "Add " : "Edit " }}Game</button>
         <button type="button" class="btn btn-outline-secondary" 
