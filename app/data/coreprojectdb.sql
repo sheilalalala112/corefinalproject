@@ -26,6 +26,7 @@ CREATE TABLE referee (
     gameid INT,
     refereeid INT,
     refereestatus VARCHAR (18),
+    position VARCHAR(48),
     FOREIGN KEY (gameid) REFERENCES game(gameid),
     FOREIGN KEY (refereeid) REFERENCES referee(refereeid)
 );
@@ -39,10 +40,10 @@ insert into game values (1,'Hodge', '2021-01-23', '09:37:23');
 insert into game values (2, 'Godfrey', '2021-06-07', '02:45:21');
 insert into game values (3, 'Prebys', '2021-03-05', '23:11:24');
 
-insert into assignment values (1, 1, 2, 'Accepted');
-insert into assignment values (2, 2, 4, 'Assigned');
-insert into assignment values (3, 3, 3, 'Tentative');
-insert into assignment values (4, 1, 1, 'Assigned');
+insert into assignment values (1, 1, 2, 'Accepted', 'Head');
+insert into assignment values (2, 2, 4, 'Assigned', 'Head');
+insert into assignment values (3, 3, 3, 'Tentative', 'Linesmen');
+insert into assignment values (4, 1, 1, 'Assigned', 'Linesmen');
 
 select * from game;
 select * from referee;
