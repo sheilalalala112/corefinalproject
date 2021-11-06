@@ -22,8 +22,8 @@
         <div class="col col-4">
             <div v-for="g in games" v-on:click="selectGame(g)"
              :class="['game', {selected: selectedGame && g.gameid == selectedGame.gameid}]">
-            <span class="date">{{ g.field }}</span>
-            <span class="date">{{ g.gamedate }}</span>
+            <span class="date">{{ g.field }}</span><br>
+            <span class="date">{{ g.gamedate }}</span><br>
             <span class="time">{{ g.gametime }}</span> <!--pay attention to this, double check-->
             </div>
         </div>
@@ -74,7 +74,11 @@
                 <option value="Accepted">Accepted</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+            <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add " : "Edit " }}Assignment</button>
+            <button type="button" class="btn btn-outline-secondary" 
+            v-if="selectedAssignment"
+            v-on:click="handleResetEdit">Cancel Edit
+            </button>
             </form>
         </div>
     </div>
