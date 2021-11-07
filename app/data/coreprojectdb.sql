@@ -1,5 +1,5 @@
-use coreproject;
-show create table referee;
+CREATE DATABASE IF NOT EXISTS coreproject;
+USE coreproject;
 
 DROP TABLE IF EXISTS referee;
 CREATE TABLE referee (
@@ -21,11 +21,11 @@ CREATE TABLE referee (
  DROP TABLE IF EXISTS assignment;
  CREATE TABLE assignment (
 	assid INT PRIMARY KEY AUTO_INCREMENT,
-    assgameid INT,
-    assrefereeid INT,
+    gameid INT,
+    refereeid INT,
     refereestatus VARCHAR (18),
-    FOREIGN KEY (assgameid) REFERENCES game(gameid),
-    FOREIGN KEY (assrefereeid) REFERENCES referee(refereeid)
+    FOREIGN KEY (gameid) REFERENCES game(gameid),
+    FOREIGN KEY (refereeid) REFERENCES referee(refereeid)
 );
 
 insert into referee values (1, 'Tanvi','Hegde', 2, 35, 78);
