@@ -65,7 +65,7 @@ const ConstApp = {
         postNewAssignment(evt) {
             //assign game id to assignment
             this.assignmentForm.gameid = this.selectedGame.gameid;
-            this.assignmentForm.refereestatus = "Assigned";
+            this.assignmentForm.refereestatus = "unassigned";
             console.log("Posting!", this.assignmentForm);
             fetch('api/assignment/create.php', {
                 method:'POST',
