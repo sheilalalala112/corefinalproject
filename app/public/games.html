@@ -47,6 +47,8 @@
       </tbody>
     </table><br>
 
+    <a href="api/report/games.php/?format=csv" download>Download as CSV</a>
+
     <h3>{{ selectedGame === null ? "Add " : "Edit " }} Game</h3>
     <form v-on:submit.prevent="postGame"><!--index.js-->
       <div class="mb-3">
