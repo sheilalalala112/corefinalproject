@@ -60,6 +60,7 @@ a {
         border: 10px solid green;
         font-weight: bold;
         table-layout: fixed;
+        text-align: center;
       }
       
       td {
@@ -67,6 +68,7 @@ a {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        text-align: center;
       }
 
 
