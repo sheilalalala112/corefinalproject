@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+ 
+    <!--code copied from https://www.phpcluster.com/change-the-date-format-to-yyyy-mm-dd-in-datepicker/-->
+
+    <script src="https://unpkg.com/vue@next"></script>
+    
+  </head>
+
+  <body>
+    <header>
+		Tables
+	</header>
+	<p> 
+    <a href="home.html">Home</a> | <a href="referee.html">Referees</a> | <a href="games.html">Games</a> | <a href="assignment.html">Assignments</a> | <a href="report.html">Report</a>
+    </p>
+  
+    <div id="reportApp" class="container">
+        <p><a href="api/report/?format=csv" download>Download as CSV</a></p>
+        <div class="row align-items-start">
+            <div class="col col-12">
+            
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Field</th>
+                    <th>Game Date</th>
+                    <th>Referee Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="a in assignments">
+                        <td>{{ a.firstname }}</td>
+                        <td>{{ a.field }}</td>
+                        <td>{{ a.gamedate }}</td>
+                        <td>{{ a.refereestatus }}</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            </div>
+        </div>
+    </div>
+    
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    
+        <script src="js/report.js"></script>
+    </body>
+    </html>
+    
