@@ -163,6 +163,11 @@ a {
         border: 10px solid rgb(80, 90, 42);
         padding: 10px;
         margin: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+     
         }
         
         
@@ -249,3 +254,11 @@ a {
 .field {
   font-weight: bold;
 }
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem; 
