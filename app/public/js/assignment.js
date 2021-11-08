@@ -53,7 +53,7 @@ const ConstApp = {
             })
         },
 
-        selectGame(gg) {
+        selectGame(gg) { //click on selected game 
             if (gg == this.selectedGame) {
                 return;
             }
@@ -84,7 +84,7 @@ const ConstApp = {
               });
         },
 
-        getRefereeName(rid) { //find the referee in this array that matches the ID and print the firstname
+        getRefereeFirstName(rid) { //find the referee in this array that matches the ID and print the firstname
             rn = this.referees.find(r => r.refereeid == rid);
             console.log("referee name: ", rn.firstname);
             return rn.firstname;
@@ -123,45 +123,45 @@ const ConstApp = {
           });
     },
 
-    postDeleteAssignment(assign) {  
-        if ( !confirm("Are you sure you want to delete" + this.getRefereeName(assign.refereeid) + " for the game?") ) {
-            return;
-        }  
-        console.log("Delete!", assign);
+        postDeleteAssignment(assign) {  
+            if ( !confirm("Are you sure you want to delete " + this.getRefereeFirstName(assign.refereeid) + " for the game?") ) {
+                return;
+            }  
+            console.log("Delete!", assign);
 
-        fetch('api/assignment/delete.php', {
-            method:'POST',
-            body: JSON.stringify(assign),
-            headers: {
-              "Content-Type": "application/json; charset=utf-8"
-            }
-          })
-          .then( response => response.json() )
-          .then( json => {
-            console.log("Returned from post:", json);
-            // TODO: test a result was returned!
-            this.assignments = json;
-            
-            // reset the form
-            this.handleResetEdit();
-        });
-    },
+            fetch('api/assignment/delete.php', {
+                method:'POST',
+                body: JSON.stringify(assign),
+                headers: {
+                "Content-Type": "application/json; charset=utf-8"
+                }
+            })
+            .then( response => response.json() )
+            .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.assignments = json;
+                
+                // reset the form
+                this.handleResetEdit();
+            });
+        },
 
-    handleEditAssignment(assign) {
-        this.selectedAssignment = assign;
-        this.assignmentForm = Object.assign({}, this.selectedAssignment);
+        handleEditAssignment(assign) {
+            this.selectedAssignment = assign;
+            this.assignmentForm = Object.assign({}, this.selectedAssignment);
+        },
+        handleResetEdit() {
+            this.selectedAssignment = null;
+            this.assignmentForm = {};
+        }
+
     },
-    handleResetEdit() {
-        this.selectedAssignment = null;
-        this.assignmentForm = {};
+        created() {
+        this.fetchGameData();
     }
 
-},
-    created() {
-    this.fetchGameData();
 }
 
-}
-
-Vue.createApp(ConstApp).mount('#assignment');
+Vue.createApp(ConstApp).mount('#assignmentlist');
 
