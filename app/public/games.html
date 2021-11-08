@@ -36,10 +36,10 @@
 
       <tbody>
         <tr v-for="g in game">
-          <td>{{ g.field }}</td>	
-          <td>{{ g.gamedate }}</td>
-          <td>{{ g.gametime }}</td>
-          <td>
+          <td class="text-center">{{ g.field }}</td>	
+          <td class="text-center">{{ g.gamedate }}</td>
+          <td class="text-center">{{ g.gametime }}</td>
+          <td class="text-center">
             <button type="button" v-on:click="handleEditGame(g)" class="btn btn-outline-secondary btn-sm">Edit</button>
             <button type="button" v-on:click="postDeleteGame(g)" class="btn btn-outline-secondary btn-sm">Delete</button>
           </td>

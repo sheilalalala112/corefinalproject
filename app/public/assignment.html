@@ -40,10 +40,10 @@
             </thead>
                 <tbody>
                     <tr v-for="a in assignments">
-                        <td>{{ getRefereeFirstName(a.refereeid) }}</td>
-                        <td>{{ a.position }}</td>
-                        <td>{{ a.refereestatus }}</td>
-                        <td>
+                        <td class="text-center">{{ getRefereeFirstName(a.refereeid) }}</td>
+                        <td class="text-center">{{ a.position }}</td>
+                        <td class="text-center">{{ a.refereestatus }}</td>
+                        <td class="text-center">
                         <button type="button" v-on:click="handleEditAssignment(a)" class="btn btn-outline-dark btn-sm">Edit</button>
                         <button type="button" v-on:click="postDeleteAssignment(a)" class="btn btn-outline-dark btn-sm del_btn">Delete</button>
                         </td>
