@@ -34,13 +34,13 @@
           </thead>
           <tbody>
               <tr v-for="referee in referees">
-                <td>{{ referee.firstname }}</td>
-                <td>{{ referee.lastname }}</td>	
-                <td>{{ referee.grade }}</td>
-                <td>{{ referee.age }}</td>
-                <td>{{ referee.rating }}</td>
-                <td></td>
-                <td>
+                <td class="text-center">{{ referee.firstname }}</td>
+                <td class="text-center">{{ referee.lastname }}</td>	
+                <td class="text-center">{{ referee.grade }}</td>
+                <td class="text-center">{{ referee.age }}</td>
+                <td class="text-center">{{ referee.rating }}</td>
+                <td class="text-center"></td>
+                <td class="text-center">
                   <button type="button" v-on:click="handleEditReferee(referee)" class="btn btn-outline-secondary btn-sm">Edit</button>
                   <button type="button" v-on:click="postDeleteReferee(referee)" class="btn btn-outline-secondary btn-sm">Delete</button>
                 </td>

@@ -18,6 +18,7 @@
   <body>
     <div id="page-container">
         <div id="content-wrap">
+   
 	<p> 
     <a href="home.html">Home</a> | <a href="referee.html">Referees</a> | <a href="games.html">Games</a> | <a href="assignment.html">Assignments</a> | <a href="report.html">Report</a>
     </p>
@@ -38,10 +39,10 @@
                 </thead>
                 <tbody>
                     <tr v-for="a in assignments">
-                        <td>{{ a.firstname }}</td>
-                        <td>{{ a.field }}</td>
-                        <td>{{ a.gamedate }}</td>
-                        <td>{{ a.refereestatus }}</td>
+                        <td class="text-center">{{ a.firstname }}</td>
+                        <td class="text-center">{{ a.field }}</td>
+                        <td class="text-center">{{ a.gamedate }}</td>
+                        <td class="text-center">{{ a.refereestatus }}</td>
                     </tr>
                 </tbody>
             </table>
