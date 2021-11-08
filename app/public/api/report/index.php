@@ -11,10 +11,12 @@ $sql = 'SELECT
   gamedate, 
   refereestatus
 FROM referee, game, assignment
-WHERE referee.refereeid = assignment.refereeid and game.gameid = assignment.gameid
+WHERE referee.refereeid = assignment.refereeid AND 
+      game.gameid = assignment.gameid 
+      -- game.gamedate > ? and assignment.refereestatus = "unassigned"
 GROUP BY firstname';
 $vars = [];
-//code copied from https://www.geeksforgeeks.org/joining-three-tables-sql/
+//code refered to https://www.geeksforgeeks.org/joining-three-tables-sql/
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
