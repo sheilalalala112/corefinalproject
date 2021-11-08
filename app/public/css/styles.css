@@ -233,3 +233,19 @@ a {
           animation-name: example;
           animation-duration: 4s;
         }
+
+/** assignment table click on game **/
+.game {
+  margin: 10px 2px;
+  padding: 4px;
+  border: 1px solid gray;
+  background-color: rgb(159, 235, 88);
+}
+
+.selected {
+    background-color: rgb(123, 157, 250);
+}
+
+.field {
+  font-weight: bold;
+}

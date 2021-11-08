@@ -6,215 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
-    <style>
-        .game1 {
-          background-color: rgba(255, 250, 0, 0.623);
-          color: black;
-          border: 3px solid black;
-          margin: auto;
-          padding: auto;
-        }
-        .game2 {
-          background-color:rgba(196, 50, 25, 0.829);
-          color: black;
-          border: 3px solid black;
-          margin: auto;
-          padding: auto;
-          height: auto;
-          width: auto;
-        }
-        .containers {
-          background-color: lightgrey;
-          color: white;
-          border: 2px solid black;
-          margin: auto;
-          padding: auto;
-          top:0;
-          height: 30%;
-          width: 30%;
-          z-index: 100;
-          overflow-y: auto;
-          float: ;
-          position: sticky;
-        }
-        
-        .wrapper{
-        display:flex;
-        justify-content:space-between;
-        background;
-        position: absolute;
-        background-color: hotpink;
-        }
-
-
-        .c1{
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        background-color: lightgreen;
-        }   
-
-
-        .c2{
-        position: absolute;
-        background-color: lightblue;
-        margin-right: 120px;
-        }
-    </style>
-    <title>Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    
   </head>
+  <p> 
+    <a href="home.html">Home</a> | <a href="referee.html">Referees</a> | <a href="games.html">Games</a> | <a href="assignment.html">Assignments</a> | <a href="report.html">Report</a> 
+  </p>
+
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Referee.com</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
-              </li>
-        
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="referee.html">Referees</a>
-              </li>
-             
-        
-              <li class="nav-item">
-                <a class="nav-link" href="games.html">Games</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="assignment.html">Assignment</a>
-              </li>
-             
-              <li class="nav-item">
-                <a class="nav-link" href="assigned.html">Assigned</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+    <div id="assignmentlist" class="container">
+    <div class="row align-items-start">
+        <div class="col col-4">
+            <div v-for="g in games" v-on:click="selectGame(g)"
+             :class="['game', {selected: selectedGame && g.gameid == selectedGame.gameid}]">
+            <span class="date">{{ g.field }}</span><br>
+            <span class="date">{{ g.gamedate }}</span><br>
+            <span class="time">{{ g.gametime }}</span> <!--pay attention to this, double check-->
+            </div>
+        </div>
+
+        <div class="col col-8" v-if="selectedGame">
+            <h1>Assignment for {{ selectedGame.field }}</h1>
+            <table class="table">
+            <thead>
+                <tr>
+                <th>Referee</th>
+                <th>Position</th>
+                <th>Status</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr v-for="a in assignments">
+                        <td>{{ getRefereeFirstName(a.refereeid) }}</td>
+                        <td>{{ a.position }}</td>
+                        <td>{{ a.refereestatus }}</td>
+                        <td>
+                        <button type="button" v-on:click="handleEditAssignment(a)" class="btn btn-outline-dark btn-sm">Edit</button>
+                        <button type="button" v-on:click="postDeleteAssignment(a)" class="btn btn-outline-dark btn-sm del_btn">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        <h3>{{ selectedAssignment === null ? "Add " : "Edit " }} Assignment</h3>
+            <form v-on:submit.prevent="postAssignment">
+            <div class="form-group col-md-8">
+                <label for="inputReferee">Referee</label>
+                <select v-model="assignmentForm.refereeid" class="form-select">
+                    <option v-for="r in referees" v-bind:value="r.refereeid">
+                        {{r.firstname}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="inputStatus">Position</label>
+                <select v-model="assignmentForm.position" class="form-select" required="required">
+                    <option value="Head">Head</option>
+                    <option value="Linesmen">Linesmen</option>
+                    <option value="Fourth official">Fourth Official</option>
+                    <option value="video matcho fficial">Video Match Official</option>
+                </select>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="inputStatus">Referee Status</label>
+                <select v-model="assignmentForm.refereestatus" class="form-select" required="required">
+                    <option value="Assigned">Assigned</option>
+                    <option value="Unassigned">Unassigned</option>
+                    <option value="Tentative">Tentative</option>
+                    <option value="Accepted">Accepted</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">{{ selectedAssignment === null ? "Add " : "Edit " }}Assignment</button>
+            <button type="button" class="btn btn-outline-secondary" 
+            v-if="selectedAssignment"
+            v-on:click="handleResetEdit">Cancel Edit
+            </button>
             </form>
-          </div>
-        </div>
-      </nav>
-    <h1>Assignment</h1>
-    
-    
-        <div class;="c1">
-    
-        <div class="container-fluid">
-<!-- div row -->
-<!-- div col -->
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Referee ID: 
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <li><a class="dropdown-item" href="#">001</a></li>
-                <li><a class="dropdown-item" href="#">002</a></li>
-                <li><a class="dropdown-item" href="#">003</a></li>
-                </ul>
-            </div>
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                </div>
-
-            </div>  
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Grade" aria-label="Grade">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Age" aria-label="Age">
-                </div>
-                
-                </div>
-            
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Rating" aria-label="Rating">
-                </div>
-            </div> 
-
-            <div class="row">
-                <div class="col-auto">
-                <input type="text" class="form-control" placeholder="Game ID" aria-label="Gameid">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-auto">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Are you sure</label>
-                </div>
-                </div>
-            </div>
-
-
-            
-            <div class="row">
-                <div class="col-auto">
-                <input type="submit" class="form-control" placeholder="Submit" >
-                </div>
-        
-            </div>
-                
-        </div>
-       
-            
-    
-        <hr>
-    <!-- div col2 -->
-        <div class="col"
-        <div class\= "c2">
-            <div class="containers">
-                <br>
-
-                    <div class="game1">
-                        <h2>Game 2</h2>
-                        <p>Game ID: Place holder <br>
-                        Date:  Place holder <br>
-                        Referess: Jonathan benishay, Tanv Hegde, Undecided <br></p>
-                    </div>
-                    
-
-                <br>
-                <div class="game2">
-                    <h2>Game 3</h2>
-                    <p>Game ID: Place holder <br>
-                    Date: Place holder <br>
-                    Referess: Undecided, Undecided, Undecided, Undecided <br></p>
-                </div>
-                <br>
-                <div class="game2">
-                    <h2>Game 4</h2>
-                    <p>Game ID: Place holder <br>
-                    Date: Place holder <br>
-                    Referess: Undecided, Undecided, Undecided, Undecided <br></p>
-                </div>
-                <br>
-            
-            </div>   
         </div>
     </div>
+</div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="js/assignment.js"></script>  
 
   </body>
+
 </html>
